@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+td {
+  border: 1px solid black;
+}
+
+#main-table {
+  height: 100vh;
+  width: 100vw;
+  border-collapse: collapse;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.bg-blue {
+  background-color: blue;
+}
