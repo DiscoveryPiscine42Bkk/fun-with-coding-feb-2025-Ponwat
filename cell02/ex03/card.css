@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+td {
+    padding-bottom: 1rem;
+}
+
+svg {
+    width: 30px;
+    height: 30px;
+    margin: 0 0.25rem;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#name {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#role {
+    color: gray;
+}
+
+#contact {
+    padding: 0;
+}
+
+#contact-button {
+    width: 100%;
+    height: 100%;
+    padding: 1rem 0;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+}
