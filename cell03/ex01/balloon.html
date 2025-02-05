@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="balloon"></div>
+    <script>
+        const balloon = document.getElementById('balloon');
+        const balloon_colors = ['red', 'green', 'blue'];
+        let balloon_color_index = 0;
+        let size = 200;
+
+        balloon.addEventListener('click', () => {
+            size += 10;
+            balloon_color_index = (balloon_color_index + 1) % balloon_colors.length;
+
+            if (size > 420) {
+                size = 200;
+                balloon_color_index = 0;
+            }
+            balloon.style.backgroundColor = balloon_colors[balloon_color_index];
+            set_balloon_size(size);
+        });
+
+        balloon.addEventListener('mouseout', () => {
+            size -= 5;
+            balloon_color_index = (balloon_color_index + 2) % balloon_colors.length;
+
+            if (size < 200) {
+                size = 200;
+                balloon_color_index = (balloon_color_index + 1) % balloon_colors.length;
+            }
+            balloon.style.backgroundColor = balloon_colors[balloon_color_index];
+            set_balloon_size(size);
+        });
+
+        function set_balloon_size(size) {
+            balloon.style.width = size + 'px';
+            balloon.style.height = size + 'px';
+        }
+    </script>
+</body>
+</html>
