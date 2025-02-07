@@ -59,5 +59,6 @@ function remove_todo(todo_element) {
 
 function save_cookie() {
     const todo_texts = todo_list.map(todo => todo.text);
+    console.log(todo_texts)
     document.cookie = `todos=${JSON.stringify(todo_texts)}`;
 }
