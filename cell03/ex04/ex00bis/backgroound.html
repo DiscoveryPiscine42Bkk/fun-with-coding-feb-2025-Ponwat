@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="random-button">Click me!</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $("#random-button").on("click", random_background);
+        function random_background() {
+            const random_color = Math.floor(Math.random() * 0x1000000);
+            $("body")[0].style.backgroundColor = `#${random_color.toString(16)}`;
+        }
+    </script>
+</body>
+</html>
