@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="../jquery-3.7.1.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -27,41 +28,32 @@
 </head>
 <body>
     <div id="balloon"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        const balloon = document.getElementById('balloon');
-        const balloon_colors = ['red', 'green', 'blue'];
-        let balloon_color_index = 0;
-        let size = 200;
-
-        balloon.addEventListener('click', () => {
-            size += 10;
-            balloon_color_index = (balloon_color_index + 1) % balloon_colors.length;
-
-            if (size > 420) {
-                size = 200;
-                balloon_color_index = 0;
+        const colors = ['red', 'green', 'blue'];
+        let color_index = 0;
+        $("#balloon").click(function(){
+            $(this).width("+=10px");
+            $(this).height("+=10px");
+            color_index = (color_index + 1) % colors.length;
+            $(this).css("background-color", colors[color_index]);
+            if (parseInt($(this).css("width")) > 420) {
+                $(this).width("200px");
+                $(this).height("200px");
             }
-            balloon.style.backgroundColor = balloon_colors[balloon_color_index];
-            set_balloon_size(size);
         });
 
-        balloon.addEventListener('mouseout', () => {
-            size -= 5;
-            balloon_color_index = (balloon_color_index + 2) % balloon_colors.length;
-
-            if (size < 200) {
-                size = 200;
-                balloon_color_index = (balloon_color_index + 1) % balloon_colors.length;
+        $("#balloon").mouseleave(function(){
+            $(this).width("-=5px");
+            $(this).height("-=5px");
+            color_index = (color_index + 2) % colors.length;
+            $(this).css("background-color", colors[color_index]);
+            if (parseInt($(this).css("width")) < 200) {
+                $(this).width("200px");
+                $(this).height("200px");
+                color_index = (color_index + 1) % colors.length;
+                $(this).css("background-color", colors[color_index]);
             }
-            balloon.style.backgroundColor = balloon_colors[balloon_color_index];
-            set_balloon_size(size);
         });
-
-        function set_balloon_size(size) {
-            balloon.style.width = size + 'px';
-            balloon.style.height = size + 'px';
-        }
     </script>
 </body>
 </html>
