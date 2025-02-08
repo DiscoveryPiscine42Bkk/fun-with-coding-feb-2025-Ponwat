@@ -19,6 +19,10 @@
     <input id="submit" type="submit" value="Try me!" />
 
     <script>
+        setInterval(() => {
+            alert("’Please, use me...’"); 
+        }, 30 * 1000);
+
       $("#submit").click(function () {
         const num1 = parseInt($("#num1").val());
         const num2 = parseInt($("#num2").val());

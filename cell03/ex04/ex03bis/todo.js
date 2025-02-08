@@ -4,10 +4,7 @@ $(document).ready(function () {
     if (todo === null || todo === "") {
       return;
     }
-    todos.push(todo);
     $("#ft_list").prepend(`<div class="todo">${todo}</div>`);
-    const a = $(".todo");
-    console.log(a);
   });
 
   $("#ft_list").on("click", ".todo", function () {
