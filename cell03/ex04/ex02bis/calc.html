@@ -1,76 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="../jquery-3.7.1.min.js"></script>
-</head>
-<body>
-    <input type="text" name="num1" id="num1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <input type="text" name="num1" id="num1" />
     <select name="operator" id="operator">
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="*">*</option>
-        <option value="/">/</option>
-        <option value="%">%</option>
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
     </select>
-    <input type="text" name="num2" id="num2">
-    <input id="submit" type="submit" value="Try me!">
+    <input type="text" name="num2" id="num2" />
+    <input id="submit" type="submit" value="Try me!" />
 
     <script>
-        $("#submit").click(function(){
-            const num1 = parseInt($("#num1").val());
-            const num2 = parseInt($("#num2").val());
+      $("#submit").click(function () {
+        const num1 = parseInt($("#num1").val());
+        const num2 = parseInt($("#num2").val());
 
-            if (isNaN(num1) || isNaN(num2)) {
-                alert("Error :(");
-                console.log("Error :(");
-                return;
+        if (isNaN(num1) || isNaN(num2)) {
+          alert("Error :(");
+          console.log("Error :(");
+          return;
+        }
+
+        if (num1 < 0 || num2 < 0) {
+          alert("Error :(");
+          console.log("Error :(");
+          return;
+        }
+
+        const operator = $("#operator").val();
+        let result = 0;
+
+        switch (operator) {
+          case "+":
+            result = num1 + num2;
+            break;
+          case "-":
+            result = num1 - num2;
+            break;
+          case "*":
+            result = num1 * num2;
+            break;
+          case "/":
+            if (num2 === 0) {
+              alert("It's over 9000!");
+              console.log("It's over 9000!");
+              return;
             }
 
-            if (num1 < 0 || num2 < 0) {
-                alert("Error :(");
-                console.log("Error :(");
-                return;
+            result = num1 / num2;
+            break;
+          case "%":
+            if (num2 === 0) {
+              alert("It's over 9000!");
+              console.log("It's over 9000!");
+              return;
             }
 
-            const operator = $("#operator").val();
-            let result = 0;
+            result = num1 % num2;
+            break;
+        }
 
-            switch (operator) {
-                case '+':
-                    result = num1 + num2;
-                    break;
-                case '-':
-                    result = num1 - num2;
-                    break;
-                case '*':
-                    result = num1 * num2;
-                    break;
-                case '/':
-                    if (num2 === 0) {
-                        alert("It's over 9000!");
-                        console.log("It's over 9000!");
-                        return;
-                    }
-
-                    result = num1 / num2;
-                    break;
-                case '%':
-                    if (num2 === 0) {
-                        alert("It's over 9000!");
-                        console.log("It's over 9000!");
-                        return;
-                    }
-
-                    result = num1 % num2;
-                    break;
-            }
-            
-            alert(result);
-            console.log(result);
-        })
+        alert(result);
+        console.log(result);
+      });
     </script>
-</body>
+  </body>
 </html>
